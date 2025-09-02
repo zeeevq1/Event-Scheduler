@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router";
 import Home from "./pages/Home";
+
 // import EventDetail from "./pages/EventDetail";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
