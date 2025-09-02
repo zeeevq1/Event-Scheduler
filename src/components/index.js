@@ -1,4 +1,4 @@
 import EventCard from "./EventCard";
 
 
-export { EventCard } from "./components"
+export { EventCard };
