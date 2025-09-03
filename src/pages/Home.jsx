@@ -11,19 +11,7 @@ const Home = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null)
 
-//dummyEvents for testing until we can add events 
-
-    useEffect(() => {
-  const dummyEvents = [
-    { id: 1, title: "Test Event 1", date: "2025-09-02", location: "dfd" },
-    { id: 2, title: "Test Event 2", date: "2025-09-03", location: "Hafd" },
-    { id: 3, title: "Test Event 3", date: "2025-09-04", location: "Mdf" },
-    { id: 4, title: "Test Event 4", date: "2025-09-05", location: "Hdfd" },
-  ];
-  setEvents(dummyEvents);
-}, []);
-
-  /*  useEffect (() => {
+    useEffect (() => {
 
         const abortController = new AbortController();
         
@@ -49,14 +37,14 @@ const Home = () => {
             abortController.abort();
         }
 
-    }, []) */
+    }, []) 
 
     return (
         <main className="grid grid-cols-3 gap-6 p-6">
             {loading && <p>Loading Events...</p>}
             {error && <p className="text-red-500">{error}</p>}
-            {!loading && !error && events.map(ev => (
-                <EventCard key={ev.id} event={ev} />
+            {!loading && !error && events.map(event => (
+                <EventCard key={event.id} event={event} />
             ))}
         </main>
     )

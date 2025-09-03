@@ -1,7 +1,8 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router";
 import { AuthProvider } from "./components/AuthContext";
+
+import { Home, EventDetail } from "./pages";
 import ProtectedRoute from "./components/ProtectedRoute";
-import { Home } from "./pages";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Navbar from "./components/Navbar";
@@ -13,6 +14,7 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
+          <Route path="events/:id" element={<EventDetail />} />
           {/* Se non sei loggato → vai al login */}
           <Route path="/" element={<Navigate to="/login" />} />
 
