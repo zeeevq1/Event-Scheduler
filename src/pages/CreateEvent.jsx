@@ -84,7 +84,7 @@ const CreateEvent = () => {
   }
 
   return (
-    <div className="max-w-lg mx-auto mt-10 bg-white shadow-lg rounded-2xl p-6">
+    <div className="max-w-lg mx-auto mt-10 bg-white shadow-lg rounded-2xl p-6 text-black">
       <h2 className="text-2xl font-semibold mb-4">Create Event</h2>
 
       {error && <p className="mb-3 text-red-600">{error}</p>}

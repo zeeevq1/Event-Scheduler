@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router";
 import { AuthProvider } from "./components/AuthContext";
 
-import { Home } from "./pages";
+import { Home, EventDetail } from "./pages";
 //import Home from "./pages/Home";
-// import EventDetail from "./pages/EventDetail";
+
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Navbar from "./components/Navbar";
@@ -19,6 +19,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="events/:id" element={<EventDetail />} />
           <Route path="/login" element={<Login />} />
           <Route path="/create-event" element={<CreateEvent />} />
           <Route path="/register" element={<Register />} />
