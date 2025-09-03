@@ -38,7 +38,7 @@ const CreateEvent = () => {
 
     try {
       //fetch request to create event
-      const res = await fetch("http://localhost:3001/api/eventss", {
+      const res = await fetch("http://localhost:3001/api/events", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
