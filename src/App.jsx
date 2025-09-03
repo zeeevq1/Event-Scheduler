@@ -14,16 +14,11 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
+          
           <Route path="events/:id" element={<EventDetail />} />
-          {/* Se non sei loggato → vai al login */}
-          <Route path="/" element={<Navigate to="/login" />} />
-
-          {/* Accesso libero */}
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
 
           <Route
-            path="/home"
+            path="/"
             element={
               <ProtectedRoute>
                 <Home />
@@ -39,7 +34,10 @@ function App() {
             }
           />
 
-          <Route path="*" element={<Navigate to="/login" />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
