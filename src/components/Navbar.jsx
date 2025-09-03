@@ -1,8 +1,9 @@
 import { Link } from "react-router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { AuthContext } from "./AuthContext";
 
 function Navbar() {
-  const [token, setToken] = useState(localStorage.getItem("token"));
+  const { token, logout } = useContext(AuthContext);
 
   const handleLogout = () => {
     localStorage.removeItem("token");

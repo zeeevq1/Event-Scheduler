@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router";
+import { AuthContext } from "../components/AuthContext";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,8 +19,9 @@ function Login() {
       });
       if (!res.ok) throw new Error("Login failed");
       const data = await res.json();
+      login(data.token);
       localStorage.setItem("token", data.token);
-      navigate("/");
+      navigate("/user");
     } catch (err) {
       setError(err.message);
     }
