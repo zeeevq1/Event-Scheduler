@@ -20,6 +20,12 @@ function Navbar() {
           Home
         </Link>
 
+        {token && (
+          <Link to="/create-event" className="hover:underline">
+            Create Event
+          </Link>
+        )}
+
         {!token && (
           <>
             <Link to="/login" className="hover:underline">
