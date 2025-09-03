@@ -1,11 +1,16 @@
 import { BrowserRouter, Routes, Route } from "react-router";
 
+
 import { Home, EventDetail } from "./pages";
 // import EventDetail from "./pages/EventDetail";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Navbar from "./components/Navbar";
+
 //import CreateEvent from "./pages/CreateEvent";
+
+import CreateEvent from "./pages/CreateEvent";
+
 
 function App() {
   return (
@@ -15,11 +20,14 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="events/:id" element={<EventDetail />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/create-event" element={<CreateEvent />} />
         <Route path="/register" element={<Register />} />
       </Routes>
     </BrowserRouter>
   );
 }
 export default App;
-//     <Route path="/events/:id" element={<EventDetail />} />
-//     <Route path="/create" element={<CreateEvent />} />
+
+
+
+
