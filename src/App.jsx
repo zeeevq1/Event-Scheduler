@@ -1,14 +1,17 @@
 import { BrowserRouter, Routes, Route } from "react-router";
+
+
+import { Home } from "./pages";
 //import Home from "./pages/Home";
 // import EventDetail from "./pages/EventDetail";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Navbar from "./components/Navbar";
+
+//import CreateEvent from "./pages/CreateEvent";
+
 import CreateEvent from "./pages/CreateEvent";
 
-function Home() {
-  return <h1>Welcome to Event Scheduler</h1>;
-}
 
 function App() {
   return (
@@ -24,6 +27,7 @@ function App() {
   );
 }
 export default App;
-//<Route path="/" element={<Home />} />;
-//     <Route path="/events/:id" element={<EventDetail />} />
-<Route path="/create" element={<CreateEvent />} />;
+
+
+
+
