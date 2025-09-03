@@ -1,14 +1,8 @@
-import { useNavigate } from "react-router";
 
 const EventCard = ({event}) => {
-    const navigate = useNavigate();
     
-    const handleClick = () => {
-        navigate(`/events/${event.id}`);
-    };
-
     return (
-    <div onClick={handleClick} className="card bg-gray-600 w-96 shadow-sm">
+    <div className="card bg-gray-600 w-96 shadow-sm">
             <figure>
                 <img
                     src={`https://picsum.photos/400/300?random=${event.id}`} 

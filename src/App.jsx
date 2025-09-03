@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router";
 
-import { Home } from "./pages";
+import { Home, EventDetail } from "./pages";
 // import EventDetail from "./pages/EventDetail";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -13,6 +13,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="events/:id" element={<EventDetail />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>

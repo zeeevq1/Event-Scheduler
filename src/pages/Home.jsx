@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router";
 
 import { EventCard } from "../components";
 import { getEvents } from "../events-api";
@@ -56,7 +57,9 @@ const Home = () => {
             {loading && <p>Loading Events...</p>}
             {error && <p className="text-red-500">{error}</p>}
             {!loading && !error && events.map(ev => (
-                <EventCard key={ev.id} event={ev} />
+                <Link key={event._id} to={`events/${event._id}`}>
+                <EventCard key={even.id} event={event} />
+                </Link>
             ))}
         </main>
     )
