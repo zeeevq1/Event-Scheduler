@@ -65,7 +65,7 @@ const CreateEvent = () => {
       }
 
       setSuccess("Event created successfully!");
-      setForm({ title: "", description: "", date: "", location: "" });
+      setForm({ title: "", description: "", date: "", location: ""});
     } catch (err) {
       setError(err.message || "Something went wrong.");
     }

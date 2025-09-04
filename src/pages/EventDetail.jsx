@@ -20,9 +20,16 @@ const EventDetail = () => {
             try {
                 const data = await fetch(`http://localhost:3001/api/events/${id}`);
                 const json = await data.json();
+                //for wrong url 404 error page
+                if (!json) {
+                  navigate("/404");
+                  return;
+                }
+
                 setEvent(json);
             }   catch (err) {
                 console.error(err);
+                navigate("/404");
             }   finally {
                 setLoading(false)
             }
@@ -30,10 +37,10 @@ const EventDetail = () => {
 
         fetchEvent();
 
-    }, [id])
+    }, [id, navigate])
 
     if (loading) return <p>Loading...</p>;
-    if (!event) return <p>Event not found.</p>;
+    if (!event) return null;
 
 
     return (
