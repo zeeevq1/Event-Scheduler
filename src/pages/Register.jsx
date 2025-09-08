@@ -19,7 +19,7 @@ function Register() {
 
       if (!res.ok) {
         const data = await res.json();
-        throw new Error(data.error || "Registrazione fallita");
+        throw new Error(data.error);
       }
 
       navigate("/login");

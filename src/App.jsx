@@ -1,29 +1,45 @@
-import { BrowserRouter, Routes, Route } from "react-router";
-//import Home from "./pages/Home";
-// import EventDetail from "./pages/EventDetail";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router";
+import { AuthProvider } from "./components/AuthContext";
+
+import { Home, EventDetail, NotFound } from "./pages";
+import ProtectedRoute from "./components/ProtectedRoute";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Navbar from "./components/Navbar";
 import CreateEvent from "./pages/CreateEvent";
 
-function Home() {
-  return <h1>Welcome to Event Scheduler</h1>;
-}
-
 function App() {
   return (
-    <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/create-event" element={<CreateEvent />} />
-        <Route path="/register" element={<Register />} />
-      </Routes>
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          
+          <Route path="events/:id" element={<EventDetail />} />
+
+          <Route
+            path="/"
+            element={
+              <ProtectedRoute>
+                <Home />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/create-event"
+            element={
+              <ProtectedRoute>
+                <CreateEvent />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/404" element={<NotFound />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 export default App;
-//<Route path="/" element={<Home />} />;
-//     <Route path="/events/:id" element={<EventDetail />} />
-<Route path="/create" element={<CreateEvent />} />;

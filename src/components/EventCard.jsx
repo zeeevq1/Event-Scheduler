@@ -1,5 +1,13 @@
 import { useNavigate } from "react-router";
 
+const eventImages = [
+  "/assets/event1.jpg",
+  "/assets/event2.jpg",
+  "/assets/event3.jpg",
+  "/assets/event4.jpg",
+  "/assets/event5.jpg"
+];
+
 const EventCard = ({event}) => {
     const navigate = useNavigate();
     
@@ -8,18 +16,19 @@ const EventCard = ({event}) => {
     };
 
     return (
-    <div click={handleClick} className="card bg-base-100 w-96 shadow-sm">
+    <div onClick={handleClick} className="card bg-gray-600 w-96 shadow-sm">
             <figure>
                 <img
-                    src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZXZlbnQlMjBoaW50ZXJncnVuZGJpbGR8ZW58MHx8MHx8fDA%3D"
-                    alt="Event" />
+                    src={eventImages[event.id % eventImages.length]}
+                    alt={event.title}
+                    className="w-full h-48 object-cover rounded-t-lg" />
             </figure>
         <div className="card-body">
             <h2 className="card-title">{event.title}</h2>
-            <div className="card-actions justify-end">
-            <div className="badge badge-outline">{event.date}</div>
+          <div className="card-actions justify-start">
+            <div className="badge badge-outline">{new Date(event.date).toLocaleDateString()}</div>
             <div className="badge badge-outline">{event.location}</div>
-        </div>
+          </div>
         </div>
     </div>
     );
